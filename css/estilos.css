@@ -1,0 +1,494 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Raleway:wght@400;700;800&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 14px;
+}
+
+body {
+    background-color: whitesmoke;
+    font-family: 'noto sans', tahoma, verdana, 'sans-serif';
+
+    /* Solução rodape (parte 1) */
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+body,
+h1,
+h2,
+p,
+figure,
+.menu {
+    margin: 0;
+    padding: 0;
+
+}
+
+h1 {
+    font-family: ralewey, verdana, sans-serif;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 1.5rem;
+
+}
+
+h1 a {
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    padding: 0.3rem 1rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+header .limitador {
+    height: 12vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header {
+    /* display: flex;
+    justify-content: space-between;
+    align-items: center; */
+    /* height: 12vh; */
+
+    /* deixa o cabeçalho fixo no topo */
+    position: sticky;
+    z-index: 10;
+    top: 0;
+    background-color: white;
+
+    /*Altura Height
+    (altura da veiwport)
+    Usando esta meda garantimos que a relação de tama e a tela (viewpor). caso,cerca de 12 unidades na alutara da tela  */
+    height: 10vh;
+}
+
+nav h2 a {
+    color: black;
+    font-size: 1.2rem;
+    padding: 1rem;
+    display: inline-block;
+}
+
+nav h2 a:hover,
+nav h2 a:focus,
+.menu a:hover,
+.menu a:focus {
+    background-color: #929292;
+}
+
+.menu {
+    list-style: none;
+    display: none;
+}
+
+.menu a {
+    color: black;
+    font-weight: bold;
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    align-items: center
+}
+
+.menu.aberto {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+
+    position: absolute;
+    right: 0;
+    left: 0;
+}
+
+.destaque {
+    background-image: url(../imagens/fundo-destaque.jpg);
+
+    height: 88vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+
+.destaque h2,
+.destaque p {
+    color: white;
+    text-align: center;
+}
+
+.destaque h2 {
+    font-size: clamp(3rem, 10vw, 7rem);
+
+    animation-name: aparecer;
+    animation-duration: 3s;
+
+    /* animation-iteration-count: infinite; */
+    animation-direction: alternate;
+}
+
+.destaque p {
+    font-size: clamp(1.5rem, 3vw, 3rem);
+
+    animation-name: aparecer;
+    animation-duration: 3s;
+    animation-delay: 2s;
+
+    /* Usamos a propiedade/valor
+    abaixo para forçar a animação
+     a iniciar (após os 2s) já com opacidade zerada, o
+     tamanho menor e posição diferente */
+    animation-fill-mode: backwards;
+
+}
+
+/* Etapa 1
+criar uma regra de animação
+ */
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        scale: (0.1);
+        transform: translateY(-600px);
+
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            scale(1) translateY(0);
+
+    }
+}
+
+img {
+    max-width: 100%;
+}
+
+article h2 {
+    padding: 1rem;
+    font-size: 2rem;
+    font-family: "raleway", sans-serif;
+    color: #6b6b6b;
+
+}
+
+article p,
+article address {
+    padding: 0, 5rem 0;
+    font-size: 1, 3rem;
+}
+
+article address {
+    font-style: normal;
+}
+
+.front-end,
+.historia,
+.localização {
+    text-align: center;
+}
+
+.historia {
+    background-image: url(../imagens/fundo-madeira.jpg);
+
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+
+.historia h2 {
+    color: white;
+    text-shadow: #000000 1px 1px 3px
+}
+
+.historia iframe {
+    width: 100%;
+    max-width: 700px;
+    margin-bottom: 2rem;
+}
+
+.localização iframe {
+    width: 100%;
+    margin-top: 2rem;
+
+}
+
+.front-end figure {
+    margin: 2rem auto;
+}
+
+.limitador {
+    width: 95vw;
+    margin: auto;
+}
+
+footer {
+    background-color: #000000;
+    color: white;
+    height: 30vh;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.conteudo {
+    background-color: #92929269;
+    padding: 0.5rem;
+    border-radius: 8px;
+
+}
+
+.conteudo h2 {
+    padding-left: 0;
+    text-align: center;
+}
+
+.conteudo h2::before {
+    content: '📌';
+}
+
+.conteudo h2::after {
+    content: '💡';
+}
+
+
+table,
+th,
+td {
+    border: solid 2px black;
+    border-collapse: collapse;
+}
+
+table {
+    width: 80%;
+    margin: auto;
+    max-width: 600px;
+}
+
+caption {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 0.8rem;
+}
+
+th {
+    background-color: black;
+    color: white;
+    padding: 0.7rem;
+    font-size: 1.1rem;
+    width: 33.33%;
+}
+
+td {
+    padding: 2%;
+    font-size: 1.1rem;
+}
+
+td:last-child {
+    text-align: right;
+}
+
+td:first-child {
+    text-transform: uppercase;
+}
+
+td:nth-child(2) {
+    text-align: center;
+}
+
+td:last-child::before {
+    content: 'R$'
+}
+
+tr:nth-child(odd) {
+    background-color: #6b6b6b;
+}
+
+tr:nth-child(even) {
+    background-color: #c4bfbf;
+}
+
+.fotos img {
+    border-radius: 50%;
+    filter: grayscale(100%);
+    box-shadow: #000000c7 0 0 50px;
+    transform: scale(0.9);
+    transition: 0.2;
+}
+
+.fotos img:hover {
+    transform: scale(1);
+    filter: grayscale(0);
+}
+
+.fotos {
+    text-align: center;
+}
+
+form {
+    width: 95%;
+    margin: auto;
+    padding: 1rem;
+    background-color: rgba(112, 112, 112, 0.253);
+    border-radius: 8px;
+}
+
+/* pseudo classe :not 
+    permite criar execeçoes para derteminadas regras.
+    No exemplo abaixo,estamps selecionados todos os inputs EXCETO os que são do tipo e checkbox */
+
+input:not([type=radio]):not([type=checkbox]),
+select,
+textarea {
+    border: none;
+    padding: 1%;
+    width: 100%;
+    box-shadow: darkgray 0 0 5px;
+    height: 40px;
+}
+
+textarea {
+    height: auto;
+}
+
+label {
+    font-size: 1.rem;
+}
+
+form div {
+    margin-top: 1rem;
+}
+
+button {
+    border: none;
+    background-color: black;
+    color: white;
+    padding: 1rem;
+    font-weight: bold;
+}
+
+button:hover,
+button:focus {
+    background-color: #6b6b6b;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 530px) {
+    nav h2 {
+        display: none;
+    }
+
+    .menu {
+        display: flex;
+    }
+
+    .menu li {
+        width: 100%;
+    }
+
+    nav {
+        width: 70%;
+    }
+
+    .front-end img {
+        height: 150px;
+    }
+
+}
+
+@media screen and (min-width: 800px) {
+    html { font-size: 18px; }
+    .limitador {max-width: 1100px;}
+}
+
+/* usamos flex 1 para garantir que a main ocupara todo espaço disponivel no body (que já segue o tamanho da viewport) */
+main {
+    flex: 1 ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* crie uma regra para formatar o artigo 
+de historia da internet com
+plano de fundo imagem fundo madeira
+deixe a imagem parada e cobrindo todo o espaço
+
+crie uma regra para formatar o titulo
+historia da internet com a cor branca e uma sombra de texto
+
+crie uma regra para formatar o video 
+do historia da internet com
+largura de 100%
+largura maxima de 700px
+margem inferior de 2rem
+crie uma regra para formatar o mapa 
+da localização com
+largura de 100
+margem superior de 2rem
+
+crie uma regra para formatar somente 
+o figure do front end com
+margem superior/inferior de 2rem, e
+esquerda/direita automatica
+conteudo centralizado
+
+crie uma classe chamada ilimitador
+com largura de 95vw e margem automatica.
+aplique esta classe no cabeçalho, artigo
+front-end e informaçoes de localização
+*/
+
+
+
+
+
+
+
+
+
+
+
+/* HOJE 
+para telas a partir de 530px,faca
+
+esconder a palavra menu
+habilitar o flex para a classe menu (lista) 
+definir largura de 100%
+dentro da lista menu
+definir largura de 70% para o elemento nav
+reduzir a altura das imagens contidas no front end
+para 150px 
+Para telas com pelo menos 800px de largura,faca 
+
+aumentar o tamanho geral dos textos (a referencia agora devera ser de 18px
+
+definir a largura maxima da classe limitador para 1100px*/
