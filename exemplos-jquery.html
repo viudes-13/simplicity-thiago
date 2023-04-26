@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }  
+    </style>
+</head>
+<body>
+    <h1>Introdução jQuery</h1>
+    <hr>
+    <h2>A mais famosa biblioteca JS</h2>
+    <p>Ferramenta que ainda hoje facilita o desenvolvimento web usando JS.</p>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Optio modi molestias illum qui?</p>
+    <p>Laudantium deserunt necessitatibus sed ex.</p>
+
+    <!-- "instalação" da jQuery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    
+    <script>
+        /* aqui progamamos usando recursos da biblitoca jQuery */
+        const titulo = $("h1");
+        console.log(titulo);
+
+        // Seleção de vários elementos
+        const paragrafos = $("p");
+        console.log(paragrafos);
+
+        //CSS iline
+        titulo.css({
+            "color" : "red",
+            "text-aling" : "center"
+        })
+
+        //mudando o conteúdo 
+        titulo.text ("Novo Texto!");
+        titulo.html ("Novo texto com <i>tag</i>");
+
+        //manupulando eventos 
+        const subtitulo = $("h2");
+        subtitulo.on("click", function(){
+            alert("opa!");
+            // titulo.css("background", "yellow");
+            // titulo.text("Opa!")
+
+            //Encadeamento de funçoes
+            titulo.css("background" , "yellow") .text("Opa!");
+
+            // Função de efeito/animação
+            paragrafos.fadeOut();
+        
+        
+        });
+        </script>
+
+
+</body>
+</html>
